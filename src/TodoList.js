@@ -13,16 +13,16 @@ const TodoList = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/v1/getTodo');
+      const response = await axios.get('/api/v1/getTodo');
       setTodos(response.data.data);
     } catch (error) {
       console.error("Error fetching todos", error);
     }
-  };
+  }; 
 
   const addTodo = async (todo) => {
     try {
-      await axios.post('http://localhost:4000/api/v1/createTodo', todo);
+      await axios.post('/api/v1/createTodo', todo);
       fetchTodos();
     } catch (error) {
       console.error("Error adding todo", error);
@@ -31,7 +31,7 @@ const TodoList = () => {
 
   const updateTodo = async (id, updatedTodo) => {
     try {
-      await axios.put(`http://localhost:4000/api/v1/updateTodo/${id}`, updatedTodo);
+      await axios.put(`/api/v1/updateTodo/${id}`, updatedTodo);
       fetchTodos();
       setEditingTodo(null);
     } catch (error) {
@@ -41,7 +41,7 @@ const TodoList = () => {
 
   const deleteTodo = async (id) => {
     try {
-      await axios.delete(`http://localhost:4000/api/v1/deleteTodo/${id}`);
+      await axios.delete(`/api/v1/deleteTodo/${id}`);
       fetchTodos();
     } catch (error) {
       console.error("Error deleting todo", error);
