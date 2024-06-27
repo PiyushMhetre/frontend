@@ -13,16 +13,16 @@ const TodoList = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get('/api/v1/getTodo');
+      const response = await axios.get(`/api/v1/getTodo`);
       setTodos(response.data.data);
     } catch (error) {
       console.error("Error fetching todos", error);
     }
-  }; 
+  };
 
   const addTodo = async (todo) => {
     try {
-      await axios.post('/api/v1/createTodo', todo);
+      await axios.post(`/api/v1/createTodo`, todo);
       fetchTodos();
     } catch (error) {
       console.error("Error adding todo", error);
