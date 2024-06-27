@@ -1,7 +1,8 @@
 import React from 'react';
 
 const TodoItem = ({ todo, deleteTodo, setEditingTodo }) => {
-  return (
+  return (  
+    
     <li>
       <h2>{todo.title}</h2>
       <p>{todo.description}</p>
